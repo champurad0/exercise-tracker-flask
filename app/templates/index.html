@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Hello, {{user.username}}</h1>
+{% for workout in workouts %}
+<div id="workout">
+  <p>{{workout.name}} <b>{{workout.weight}} x {{workout.reps}}</b></p>
+</div>
+{% endfor %}
+{% endblock %}

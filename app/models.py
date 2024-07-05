@@ -12,3 +12,15 @@ class User(db.Model):
 
     def __repr__(self):
         return "<User {}".format(self.username)
+
+
+class Workout(db.Model):
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    user_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id), index=True)
+    exersize: so.Mapped[str] = so.mapped_column(sa.String(140))
+    weight: so.Mapped[int] = so.mapped_column(sa.Integer())
+    reps: so.Mapped[int] = so.mapped_column(sa.Integer())
+    notes: so.Mapped[str] = so.mapped_column(sa.String(240))
+
+    def __repr__(self):
+        return "<Post {}>".format(self.exersize)
